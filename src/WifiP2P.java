@@ -69,9 +69,9 @@ public class WifiP2P extends CordovaPlugin {
 
 
     private void initialize(CallbackContext cb) {
-        mManager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
+        mManager = (WifiP2pManager) cordova.getActivity().getSystemService(Context.WIFI_P2P_SERVICE);
         mChannel = mManager.initialize(cordova.getActivity(), Looper.getMainLooper(), null);
-        mReceiver = new AndroidBroadcastReceiver(mManager, mChannel, cordova.getActivity());
+        mReceiver = new AndroidBroadcastReceiver(cb);
     }
 
 
