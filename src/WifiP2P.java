@@ -15,6 +15,7 @@ import android.content.Context;
 import android.net.wifi.p2p.WifiP2pManager.PeerListListener;
 import android.net.wifi.p2p.WifiP2pDeviceList;
 import android.net.wifi.p2p.WifiP2pDevice;
+import 	android.net.wifi.p2p.WifiP2pConfig;
 import android.os.Looper;
 
 import java.lang.Override;
@@ -107,7 +108,7 @@ public class WifiP2P extends CordovaPlug {
         WifiP2pDevice device;
         WifiP2pConfig config = new WifiP2pConfig();
         config.deviceAddress = device.deviceAddress;
-        mManager.connect(mChannel, config, new ActionListener() {
+        mManager.connect(mChannel, config, new WifiP2pManager.ActionListener() {
 
             @Override
             public void onSuccess() {
