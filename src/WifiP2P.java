@@ -39,7 +39,7 @@ public class WifiP2P extends CordovaPlugin {
     public static String ACTION_STOP_DISCOVER_PEER = "ACTION_STOP_DISCOVER_PEER";
     public static String ACTION_CANCEL_CONNECT = "ACTION_CANCEL_CONNECT";
 
-    private AndroidBroadcastReceiver wifiBroadcastReceiver;
+    private AndroidBroadcastReceiver mReceiver;
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals(ACTION_START_SCAN)) {
@@ -70,8 +70,8 @@ public class WifiP2P extends CordovaPlugin {
 
     private void initialize(CallbackContext cb) {
         mManager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
-        mChannel = mManager.initialize(cordova, Looper.getMainLooper(), null);
-        mReceiver = new AndroidBroadcastReceiver(mManager, mChannel, cordova);
+        mChannel = mManager.initialize(cordova.getActivity(), Looper.getMainLooper(), null);
+        mReceiver = new AndroidBroadcastReceiver(mManager, mChannel, cordova.getActivity());
     }
 
 
