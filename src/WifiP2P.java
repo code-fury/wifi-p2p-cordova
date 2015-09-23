@@ -76,7 +76,7 @@ public class WifiP2P extends CordovaPlugin {
     }
 
 
-    private JSONArray constructPeerDevicesJSONString(WifiP2pDeviceList devices) {
+    private JSONArray constructPeerDevicesJSONString(WifiP2pDeviceList devices) throws JSONException {
         JSONArray devicesListJSON = new JSONArray();
         Collection<WifiP2pDevice> devicesList = devices.getDeviceList();
         for (WifiP2pDevice dv: devicesList) {
