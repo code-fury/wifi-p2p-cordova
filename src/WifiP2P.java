@@ -5,6 +5,7 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.JSONException;
 
 import android.content.BroadcastReceiver;
 import android.content.Intent;
