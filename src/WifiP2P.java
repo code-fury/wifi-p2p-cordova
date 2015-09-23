@@ -19,9 +19,9 @@ import 	android.net.wifi.p2p.WifiP2pConfig;
 import android.os.Looper;
 
 import java.lang.Override;
-import java.util.List;
+import java.util.Collection;
 
-public class WifiP2P extends CordovaPlug {
+public class WifiP2P extends CordovaPlugin {
 
     private WifiP2pManager mManager;
     private Channel mChannel;
@@ -78,7 +78,7 @@ public class WifiP2P extends CordovaPlug {
     private JSONArray constructPeerDevicesJSONString(WifiP2pDeviceList devices) {
         JSONArray devicesListJSON = new JSONArray();
         JSONObject json = new JSONObject();
-        List<WifiP2pDevice> devicesList = devices.getDeviceList();
+        Collection<WifiP2pDevice> devicesList = devices.getDeviceList();
         for (WifiP2pDevice dv: devicesList) {
             JSONObject json = new JSONObject();
             json.put("name", dv.deviceName);
