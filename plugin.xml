@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="code.fury.wifip2p"
+    version="0.0.1">
+
+    <name>Wifi p2p</name>
+    <description>A port for wifi p2p android </description>
+    <author>code-fury</author>
+    <keywords>cordova, wifi, p2p, android</keywords>
+    <license>Apache 2.0 License</license>
+
+    <engines>
+        <engine name="cordova" version=">4.0.0" />
+        <engine name="cordova-android" version=">=4.0.0" />
+    </engines>
+
+    <js-module src="www/wifi-p2p.js">
+        <clobbers target="WifiP2P"></clobbers>
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="WifiP2P">
+                <param name="android-package" value="com.codefury.WifiP2P" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/WifiP2P.java" target-dir="src/codefury/wifip2p" />
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-sdk android:minSdkVersion="14" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+            <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        </config-file>
+    </platform>
+
+</plugin>
