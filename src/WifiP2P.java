@@ -150,7 +150,7 @@ public class WifiP2P extends CordovaPlugin {
                                     JSONArray devices = constructPeerDevicesJSONString(peers);
                                     cb.success(devices);
                                 } catch (JSONException e) {
-                                    throw e;
+                                    cb.error("INVALID_JSON");;
                                 }
                             }
                         });
