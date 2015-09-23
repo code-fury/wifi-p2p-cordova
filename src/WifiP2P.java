@@ -14,7 +14,7 @@ import android.net.wifi.p2p.WifiP2pManager.Channel;
 import android.content.Context;
 import android.net.wifi.p2p.WifiP2pManager.PeerListListener;
 import android.net.wifi.p2p.WifiP2pDeviceList;
-import android.net.wifi.p2p.WifiP2pDevice
+import android.net.wifi.p2p.WifiP2pDevice;
 import android.os.Looper;
 
 import java.lang.Override;
