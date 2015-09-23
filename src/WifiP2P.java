@@ -155,6 +155,7 @@ public class WifiP2P extends CordovaPlug {
                     // Wi-Fi P2P is not enabled
                     cb.sendPluginResult(new PluginResult(ERROR_NOT_ENABLED, "ERROR_NOT_ENABLED"));
                 }
+            }
         }
     }
 }
