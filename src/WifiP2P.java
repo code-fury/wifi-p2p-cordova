@@ -111,12 +111,12 @@ public class WifiP2P extends CordovaPlug {
 
             @Override
             public void onSuccess() {
-                cb.sendPluginResult(new PluginResult(SUCCESS_CONNECT_TO_PEER, deviceAddress));
+                cb.success(deviceAddress);
             }
 
             @Override
             public void onFailure(int reason) {
-                cb.sendPluginResult(new PluginResult(ERROR_CONNECT_TO_PEER, deviceAddress));
+                cb.error(deviceAddress);
             }
         });
     }
@@ -146,14 +146,14 @@ public class WifiP2P extends CordovaPlug {
                             @Override
                             public void onPeersAvailable(WifiP2pDeviceList peers) {
                                 JSONArray devices = constructPeerDevicesJSONString(peers);
-                                cb.sendPluginResult(new PluginResult(SUCCESS_DISCOVER_PEERS, devices));
+                                cb.success(devices);
                             }
                         });
                     }
 
                 } else {
                     // Wi-Fi P2P is not enabled
-                    cb.sendPluginResult(new PluginResult(ERROR_NOT_ENABLED, "ERROR_NOT_ENABLED"));
+                    cb.error(ERROR_NOT_ENABLED);
                 }
             }
         }
