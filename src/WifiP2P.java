@@ -105,9 +105,8 @@ public class WifiP2P extends CordovaPlugin {
 
     public void connectToPeer(final String deviceAddress, CallbackContext callback) {
         //obtain a peer from the WifiP2pDeviceList
-        WifiP2pDevice device;
         WifiP2pConfig config = new WifiP2pConfig();
-        config.deviceAddress = device.deviceAddress;
+        config.deviceAddress = deviceAddress;
         final CallbackContext cb = callback;
         mManager.connect(mChannel, config, new WifiP2pManager.ActionListener() {
 
