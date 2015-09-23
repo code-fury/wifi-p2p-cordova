@@ -146,8 +146,12 @@ public class WifiP2P extends CordovaPlugin {
                         mManager.requestPeers(mChannel, new PeerListListener() {
                             @Override
                             public void onPeersAvailable(WifiP2pDeviceList peers) {
-                                JSONArray devices = constructPeerDevicesJSONString(peers);
-                                cb.success(devices);
+                                try {
+                                    JSONArray devices = constructPeerDevicesJSONString(peers);
+                                    cb.success(devices);
+                                } catch (JSONException e) {
+                                    throw e;
+                                }
                             }
                         });
                     }
