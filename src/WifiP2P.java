@@ -85,7 +85,7 @@ public class WifiP2P extends CordovaPlug {
             json.put("status", dv.status);
             devicesListJSON.put(json);
         }
-        return devicesListJSON
+        return devicesListJSON;
     }
 
     public void stopPeerDiscovery() {
