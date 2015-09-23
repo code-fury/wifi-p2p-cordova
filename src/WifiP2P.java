@@ -46,8 +46,8 @@ public class WifiP2P extends CordovaPlugin {
             initialize(callbackContext);
             return true;
         } else if (action.equals(ACTION_CONNECT_TO_PEER)) {
-            String address = args.getJSONObject(0);
-            connectToPeer(address, callbackContext);
+            JSONObject json = args.getJSONObject(0);
+            connectToPeer(json.get("address").toString(), callbackContext);
             return true;
         } else if (action.equals(ACTION_STOP_DISCOVER_PEER)) {
             stopPeerDiscovery();
@@ -77,7 +77,6 @@ public class WifiP2P extends CordovaPlugin {
 
     private JSONArray constructPeerDevicesJSONString(WifiP2pDeviceList devices) {
         JSONArray devicesListJSON = new JSONArray();
-        JSONObject json = new JSONObject();
         Collection<WifiP2pDevice> devicesList = devices.getDeviceList();
         for (WifiP2pDevice dv: devicesList) {
             JSONObject json = new JSONObject();
